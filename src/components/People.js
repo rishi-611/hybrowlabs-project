@@ -3,7 +3,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import PeopleItem from "./PeopleItem";
 import SearchForm from "./SearchForm";
-import loader from "./loader.gif";
+import Spinner from "./Spinner";
 
 const People = () => {
   const [page, setPage] = useState(1);
@@ -13,20 +13,11 @@ const People = () => {
 
   const fetchPeople = async ({ queryKey }) => {
     const { data } = await axios.get(
-      `https://swapi.dev/api/people?page=${queryKey[1]}&search=${queryKey[2]}`
+      `https://swapi.dev/api/people?search=${queryKey[2]}&page=${queryKey[1]}`
     );
     return data;
   };
-  const { data, status, isPreviousData } = useQuery(
-    ["people", page, search],
-    fetchPeople,
-    {
-      keepPreviousData: true,
-    }
-  );
-  // if (data) {
-  //   console.log(data.results[0]);
-  // }
+  const { data, status } = useQuery(["people", page, search], fetchPeople);
 
   return (
     <div className="container main">
@@ -58,15 +49,13 @@ const People = () => {
 
       <section className="people-section">
         {status === "loading" ? (
-          <div className="loader-container ">
-            <img src={loader} alt="Loading" />
-          </div>
+          <Spinner />
         ) : status === "error" ? (
           <div>error</div>
         ) : (
           <ul>
             {data.results.map((person, index) => (
-              <PeopleItem person={person} index={index} />
+              <PeopleItem person={person} index={index} key={`${index}`} />
             ))}
           </ul>
         )}

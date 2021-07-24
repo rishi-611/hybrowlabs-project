@@ -14,7 +14,7 @@ const App = () => {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={People} />
-            <Route exact path="/:id" component={Person} />
+            <Route exact path="/people/:name" component={Person} />
           </Switch>
         </BrowserRouter>
         <ReactQueryDevtools initialIsOpen={false} />

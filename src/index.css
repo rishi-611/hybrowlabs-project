@@ -14,6 +14,14 @@ html {
   color: inherit;
 }
 
+a,
+a:hover,
+a:active,
+a:focus {
+  color: unset;
+  text-decoration: unset;
+}
+
 body {
   color: var(--dark);
 }
@@ -24,6 +32,10 @@ body {
 
 ul {
   padding-left: 0;
+}
+
+li {
+  list-style-type: none;
 }
 
 .main {
@@ -46,6 +58,14 @@ ul {
   transform: scale(0.5);
 }
 
+.ui-box {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 0.5px solid #ddd;
+  border-radius: 0.3rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
 .search-form,
 .peopleItem {
   display: grid;
@@ -56,6 +76,10 @@ ul {
   border: 0.5px solid #ddd;
   border-radius: 0.3rem;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.peopleItem {
+  cursor: pointer;
 }
 
 /* page btns */
@@ -150,4 +174,15 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* person */
+
+.person-ui-box {
+  margin-top: 1rem;
+  min-height: 60vh;
+}
+
+.person-ui-box li {
+  margin-left: 1rem;
 }
