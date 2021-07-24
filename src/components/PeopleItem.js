@@ -5,14 +5,20 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 
 const PeopleItem = ({ person, index }) => {
-  const fetchHomeWorld = async (query) => {
-    const { data } = await axios.get(query.queryKey[1]);
+  const fetchHomeWorld = async ({ queryKey }) => {
+    if (!queryKey[1]) {
+      return undefined;
+    }
+    const { data } = await axios.get(queryKey[1]);
     return data;
   };
   const { data } = useQuery(["planet", person.homeworld], fetchHomeWorld);
 
   const fetchSpecies = async ({ queryKey }) => {
     const url = queryKey[1][0];
+    if (!url) {
+      return undefined;
+    }
     const { data } = await axios.get(url);
     return data.name;
   };
@@ -21,10 +27,6 @@ const PeopleItem = ({ person, index }) => {
     ["species", person.species],
     fetchSpecies
   );
-
-  if (speciesData) {
-    console.log(speciesData);
-  }
 
   return (
     <Link to={`/people/${person.name}`}>
@@ -43,7 +45,11 @@ const PeopleItem = ({ person, index }) => {
         </div>
         <div className="right">
           <div className="right-inner">
-            {person.species.length === 0 ? "human" : speciesData}
+            {person.species.length === 0
+              ? "human"
+              : speciesStatus === "loading"
+              ? "Loading"
+              : speciesData}
           </div>
         </div>
       </div>

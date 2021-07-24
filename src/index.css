@@ -2,6 +2,7 @@
   --dark: #1a1a1a;
   --light: #fefefe;
   --primary: rgb(120, 71, 255);
+  --primary-dark: rgb(65, 25, 173);
 }
 
 html {
@@ -16,7 +17,6 @@ html {
 
 a,
 a:hover,
-a:active,
 a:focus {
   color: unset;
   text-decoration: unset;
@@ -24,10 +24,7 @@ a:focus {
 
 body {
   color: var(--dark);
-}
-
-body {
-  background-color: var(--dark);
+  background-color: var(--light);
 }
 
 ul {
@@ -43,6 +40,9 @@ li {
   min-height: 110vh;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  border: 0.5px solid #ddd;
+  border-radius: 0.3rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -107,8 +107,19 @@ li {
 .btn {
   background-color: var(--primary);
   color: var(--light);
-  border-radius: 0.6rem;
-  min-width: 5rem;
+  border-radius: 1.2rem;
+}
+
+.btn .bi {
+  transform: translateY(100px);
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  box-shadow: none;
+  color: var(--light);
+  background-color: var(--primary-dark);
 }
 
 .people-section {
@@ -185,4 +196,12 @@ li {
 
 .person-ui-box li {
   margin-left: 1rem;
+}
+
+.person-ui-box h1 {
+  font-size: 1.4rem;
+}
+
+.person-info {
+  opacity: 0.95;
 }

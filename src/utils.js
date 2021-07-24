@@ -7,6 +7,11 @@ export const getPerson = async (name) => {
   return data;
 };
 
+export const getDataFromUrl = async (url) => {
+  const { data } = await axios.get(url);
+  return data;
+};
+
 export const getStarship = async (shipUrl) => {
   const { data } = await axios.get(shipUrl);
   return data;

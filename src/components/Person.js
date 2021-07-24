@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import Spinner from "./Spinner";
-import { getPerson, getStarship, getVehicles, getFilms } from "../utils";
+import { getPerson, getDataFromUrl } from "../utils";
 
 const Person = ({ match }) => {
   // fetch person
@@ -25,7 +25,7 @@ const Person = ({ match }) => {
       return null;
     }
     for (const shipUrl of starshipsUrl) {
-      const data = await getStarship(shipUrl);
+      const data = await getDataFromUrl(shipUrl);
       ships.push(data.name);
     }
     return ships;
@@ -44,7 +44,7 @@ const Person = ({ match }) => {
       return null;
     }
     for (const vehicleUrl of vehiclesUrl) {
-      const data = await getVehicles(vehicleUrl);
+      const data = await getDataFromUrl(vehicleUrl);
       vehicles.push(data.name);
     }
     return vehicles;
@@ -55,7 +55,7 @@ const Person = ({ match }) => {
     fetchVehicles
   );
 
-  // fetch vehicles
+  // fetch films
   const fetchFilms = async ({ queryKey }) => {
     const films = [];
     const filmsUrl = queryKey[1];
@@ -63,7 +63,7 @@ const Person = ({ match }) => {
       return null;
     }
     for (const filmUrl of filmsUrl) {
-      const data = await getFilms(filmUrl);
+      const data = await getDataFromUrl(filmUrl);
       films.push(data.title);
     }
     return films;
@@ -98,24 +98,22 @@ const Person = ({ match }) => {
   const renderPersonCard = () => (
     <div className="ui-box person-ui-box">
       <h1>{person.name}</h1>
-      <ul className="vehicles">
-        Vehicles:
-        {vehicleData.length === 0 ? <li>None</li> : renderVehicles()}
-      </ul>
-      <ul className="starshipss">
-        Starships:
-        {shipData.length === 0 ? <li>None</li> : renderStarships()}
-      </ul>
-      <ul className="films">
-        Films:
-        {filmData.length === 0 ? <li>None</li> : renderFilms()}
-      </ul>
-      <div className="homeworld">Homeworld: Earth</div>
-      <div className="birthyear">Birth Year: {person.birth_year}</div>
-      <div className="height">Height: {person.height} cm</div>
-      <div className="mass">Mass: {person.mass} kg</div>
-      <div className="gender">Gender: {person.gender}</div>
-      <div className="haircolor">Hair Color: {person.hair_color}</div>
+      <div className="person-info">
+        <ul className="vehicles">
+          Vehicles:
+          {vehicleData.length === 0 ? <li>None</li> : renderVehicles()}
+        </ul>
+        <ul className="starshipss">
+          Starships:
+          {shipData.length === 0 ? <li>None</li> : renderStarships()}
+        </ul>
+        <ul className="films">
+          Films:
+          {filmData.length === 0 ? <li>None</li> : renderFilms()}
+        </ul>
+        <div className="height">Height: {person.height} cm</div>
+        <div className="mass">Mass: {person.mass} kg</div>
+      </div>
     </div>
   );
 
