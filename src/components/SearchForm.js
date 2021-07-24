@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchForm = () => {
+const SearchForm = ({ search, onChange }) => {
   return (
     <div className="form-container">
       <form id="search-form" className="search-form">
@@ -13,6 +13,8 @@ const SearchForm = () => {
           name="searchbar"
           className="form-control"
           placeholder="Search People"
+          onChange={onChange}
+          value={search}
         />
       </form>
     </div>
