@@ -1,3 +1,7 @@
+
+
+https://user-images.githubusercontent.com/83461696/126897223-e107d461-ad63-4330-90f5-c6f61c8bba69.mp4
+
 # Starwars Contact List
 ## A reactJS project for Hybrowlabs ReactJS Development Internship
 
@@ -23,9 +27,6 @@ When any list item is clicked, You will get redirected to a page that displays d
 !["person details pafe"](md-assets/person-details.jpg)
 
 The UI is kept **responsive**, so that the app does not break on small screens.
-
-## **Technical Aspects:**
-
 
 
 I thank **Hybrowlabs** for providing me the opportunity and motivation to work on this project
