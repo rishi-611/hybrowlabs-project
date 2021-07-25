@@ -24,7 +24,7 @@ Also, you can **search** for any character by name, and find your favourite char
 
 When any list item is clicked, You will get redirected to a page that displays details of that character. Details include starships, vehicles, films, mass and height.
 
-!["person details pafe"](md-assets/person-details.jpg)
+!["person details page"](md-assets/person-details.jpg)
 
 The UI is kept **responsive**, so that the app does not break on small screens.
 
