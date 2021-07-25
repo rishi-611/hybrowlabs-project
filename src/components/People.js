@@ -22,7 +22,6 @@ const People = () => {
     return data;
   };
   const { data, status } = useQuery(["people", page, search], fetchPeople);
-
   const renderPageBtns = () => (
     <div className="pagination">
       <div className="btn-container prev">
@@ -57,7 +56,7 @@ const People = () => {
       <section className="people-section">
         {status === "loading" ? (
           <Spinner />
-        ) : status === "error" ? (
+        ) : data?.results?.length === 0 ? (
           <Error404 />
         ) : (
           <ul>
