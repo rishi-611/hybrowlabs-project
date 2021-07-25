@@ -181,7 +181,8 @@ li {
   padding: 0.5rem 1rem;
   border-radius: 1.3rem;
   font-weight: 500;
-  min-width: 100px;
+  font-size: 0.9rem;
+  min-width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -204,4 +205,10 @@ li {
 
 .person-info {
   opacity: 0.95;
+}
+
+@media (max-width: 400px) {
+  .right-inner {
+    min-width: 100px;
+  }
 }

@@ -24,4 +24,8 @@ When any list item is clicked, You will get redirected to a page that displays d
 
 The UI is kept **responsive**, so that the app does not break on small screens.
 
+## **Technical Aspects:**
+
+
+
 I thank **Hybrowlabs** for providing me the opportunity and motivation to work on this project

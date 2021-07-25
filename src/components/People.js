@@ -10,7 +10,10 @@ const People = () => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
-  const onFormChange = (e) => setSearch(e.target.value);
+  const onFormChange = (e) => {
+    setSearch(e.target.value);
+    setPage(1);
+  };
 
   const fetchPeople = async ({ queryKey }) => {
     const { data } = await axios.get(
@@ -18,9 +21,7 @@ const People = () => {
     );
     return data;
   };
-  const { data, status } = useQuery(["people", page, search], fetchPeople, {
-    keepPreviousData: true,
-  });
+  const { data, status } = useQuery(["people", page, search], fetchPeople);
 
   const renderPageBtns = () => (
     <div className="pagination">
