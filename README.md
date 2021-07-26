@@ -3,7 +3,6 @@
 https://user-images.githubusercontent.com/83461696/126897223-e107d461-ad63-4330-90f5-c6f61c8bba69.mp4
 
 # Starwars Contact List
-## A reactJS project for Hybrowlabs ReactJS Development Internship
 
 Website Link: https://starwars-contact-list.netlify.app/
 
